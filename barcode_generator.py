@@ -27,14 +27,32 @@ with col1:
 with col2:
     bc_value = st.text_input('BarCode Value')
 
-try:
-    EAN = barcode.get_barcode_class(bc_type)
-    my_ean = EAN(bc_value)
-    fullname = my_ean.save(f'{bc_type}_barcode')
-    st.write(fullname)
-except Exception as e:
-    st.write(f'Skipping {bc_type} because {e}')
+# try:
+#     EAN = barcode.get_barcode_class(bc_type)
+#     my_ean = EAN(bc_value)
+#     fullname = my_ean.save(f'{bc_type}_barcode')
+#     st.write(fullname)
+# except Exception as e:
+#     st.write(f'Skipping {bc_type} because {e}')
 
+# import EAN13 from barcode module 
+from barcode import EAN13 
+
+# import ImageWriter to generate an image file 
+from barcode.writer import ImageWriter 
+
+# Make sure to pass the number as string 
+number = '5901234123457'
+
+# Now, let's create an object of EAN13 class and 
+# pass the number with the ImageWriter() as the 
+# writer 
+my_code = EAN13(number, writer=ImageWriter()) 
+
+# Our barcode is ready. Let's save it. 
+my_code.save("new_code1")
+
+st.image(my_code)
 st.image(fullname)
 
 
