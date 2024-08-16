@@ -1,8 +1,6 @@
 import streamlit as st
 import barcode
 from barcode.writer import ImageWriter
-from PIL import Image
-import cairosvg
 
 st.title('TCG BarCode Generator')
 st.divider()
