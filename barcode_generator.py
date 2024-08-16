@@ -1,5 +1,5 @@
 import streamlit as st
-import barcode
+import barcode-python
 
 
 st.title('TCG BarCode Generator')
