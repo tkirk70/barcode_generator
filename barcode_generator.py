@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import barcode
 
 st.title('TCG BarCode Generator')
 st.divider()
