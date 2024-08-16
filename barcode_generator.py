@@ -1,6 +1,7 @@
 import streamlit as st
-import pandas as pd
-import barcode
+from barcode import EAN13
+from barcode.writer import ImageWriter
+from PIL import Image
 
 st.title('TCG BarCode Generator')
 st.divider()
@@ -35,22 +36,47 @@ with col2:
 # except Exception as e:
 #     st.write(f'Skipping {bc_type} because {e}')
 
-# import EAN13 from barcode module 
-from barcode import EAN13 
+# # import EAN13 from barcode module 
+# from barcode import EAN13 
 
-# import ImageWriter to generate an image file 
-from barcode.writer import ImageWriter 
+# # import ImageWriter to generate an image file 
+# from barcode.writer import ImageWriter 
 
-# Make sure to pass the number as string 
-number = '5901234123457'
+# # Make sure to pass the number as string 
+# number = '5901234123457'
 
-# Now, let's create an object of EAN13 class and 
-# pass the number with the ImageWriter() as the 
-# writer 
-my_code = EAN13(number, writer=ImageWriter()) 
+# # Now, let's create an object of EAN13 class and 
+# # pass the number with the ImageWriter() as the 
+# # writer 
+# my_code = EAN13(number, writer=ImageWriter()) 
 
-# Our barcode is ready. Let's save it. 
-my_code.save("new_code1")
+# # Our barcode is ready. Let's save it. 
+# my_code.save("new_code1")
+
+import streamlit as st
+from barcode import EAN13
+from barcode.writer import ImageWriter
+from PIL import Image
+
+# Function to generate barcode
+def generate_barcode(number):
+    barcode = EAN13(number, writer=ImageWriter())
+    barcode.save("barcode")
+    return "barcode.png"
+
+# Streamlit app
+st.title("Barcode Generator")
+
+# Input for barcode number
+number = st.text_input("Enter a 12-digit number for the barcode:")
+
+if st.button("Generate Barcode"):
+    if len(number) == 12 and number.isdigit():
+        barcode_image = generate_barcode(number)
+        st.image(barcode_image, caption="Generated Barcode")
+    else:
+        st.error("Please enter a valid 12-digit number.")
+
 
 st.image(my_code)
 st.image(fullname)
