@@ -1,7 +1,6 @@
 import streamlit as st
-from barcode import EAN13
-from barcode.writer import ImageWriter
-from PIL import Image
+import barcode
+
 
 st.title('TCG BarCode Generator')
 st.divider()
@@ -52,11 +51,6 @@ with col2:
 
 # # Our barcode is ready. Let's save it. 
 # my_code.save("new_code1")
-
-import streamlit as st
-from barcode import EAN13
-from barcode.writer import ImageWriter
-from PIL import Image
 
 # Function to generate barcode
 def generate_barcode(number):
