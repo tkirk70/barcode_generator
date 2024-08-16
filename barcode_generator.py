@@ -54,3 +54,9 @@ with open(zip_filename, "rb") as file:
         file_name=zip_filename,
         mime="application/zip",
     )
+
+# Custom CSS style for the text
+custom_style = '<div style="text-align: right; font-size: 20px;">✨ A TDS Application ✨</div>'
+
+# Render the styled text using st.markdown
+st.markdown(custom_style, unsafe_allow_html=True)
