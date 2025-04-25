@@ -1,3 +1,4 @@
 barcode
+barcode.writer
 PIL
 zipfile
