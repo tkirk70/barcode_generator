@@ -1,5 +1,3 @@
-barcode
-pip
 streamlit
-zipfile
-PIL
+python-barcode
+Pillow
