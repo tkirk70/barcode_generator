@@ -1,5 +1,1 @@
-streamlit
-python-barcode
-barcode
-PIL
-zipfile
+
